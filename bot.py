@@ -3,6 +3,7 @@ import requests
 import os
 
 def luhn_checksum(num_str):
+    """محاسبه رقم کنترلی با الگوریتم لوهان (Luhn)"""
     total = 0
     reverse_digits = num_str[::-1]
     for i, digit in enumerate(reverse_digits):
@@ -15,13 +16,14 @@ def luhn_checksum(num_str):
     return (10 - (total % 10)) % 10
 
 def generate_charge_code():
+    """تولید کد شارژ ۱۶ رقمی بدون خط تیره"""
     first_15_digits = ''.join(random.choices('0123456789', k=15))
     check_digit = luhn_checksum(first_15_digits)
     full_code = first_15_digits + str(check_digit)
-    formatted = '-'.join([full_code[i:i+4] for i in range(0, 16, 4)])
-    return formatted
+    return full_code
 
 def send_to_telegram(message):
+    """ارسال پیام به تلگرام از طریق ربات"""
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
     chat_id = os.environ.get("TELEGRAM_CHAT_ID")
     url = f"https://api.telegram.org/bot{token}/sendMessage"
