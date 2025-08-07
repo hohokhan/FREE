@@ -42,7 +42,7 @@ def main():
 
 `کد ایرانسل:` `{irancell}`
 `کد رایتل  :` `{rightel}`
-`کد همراه اول:` `{hamrah_aval}`
+کد همراه اول: `{hamrah_aval}`
 """
     send_to_telegram(message)
 
