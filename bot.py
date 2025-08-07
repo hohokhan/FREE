@@ -38,7 +38,7 @@ def main():
     hamrah_aval = generate_charge_code()
 
     message = f"""\
-*کد شارژ جدید:*
+*کد شارژ 20 هزار تمنی:*
 
 کلیک کنید کپی میشه
 
